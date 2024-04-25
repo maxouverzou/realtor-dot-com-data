@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+DATE=$(date '+%Y-%m-%d')
+mkdir -p data/$DATE/{whatcom,skagit}
+
+python3 -m homeharvest.cli -l for_sale -o csv "Whatcom County, WA" -f data/$DATE/whatcom/for_sale
+python3 -m homeharvest.cli -l sold -o csv "Whatcom County, WA" -d 7 -f data/$DATE/whatcom/sold
+python3 -m homeharvest.cli -l for_sale -o csv "Skagit County, WA" -f data/$DATE/skagit/for_sale
+python3 -m homeharvest.cli -l sold -o csv "Skagit County, WA" -d 7 -f data/$DATE/skagit/sold
